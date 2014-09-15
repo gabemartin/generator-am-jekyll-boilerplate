@@ -1,0 +1,48 @@
+footer
+  border-top: 1px solid $light_grey
+  padding-top: 3em
+  margin-top: 3em
+  section
+    float: left
+    width: 33%
+  ul
+    +striplist
+
+
+  .connect
+    li
+      padding-left: 2em
+      $list: ico_twitter ico_facebook ico_github ico_email ico_chat ico_forum
+      =social-icons
+        @each $icon in $list
+          &.#{$icon}
+            background: transparent url("/img/#{$icon}.png") 0 center no-repeat
+      +social-icons
+  +breakpoint(med)
+    margin-top: 0
+    padding-top: 2em
+    section
+      float: left
+      width: 100%
+      padding: 0
+      margin-bottom: 2em
+      &.documentation
+        width: 49%
+        float: left
+      &.connect
+        width: 49%
+        float: right
+  +breakpoint(sm)
+    section, section.documentation, section.connect
+      float: none
+      width: 100%
+    a
+      line-height: 44px
+    .documentation ul
+      list-style: disc
+      padding-left: 2em
+    .connect ul
+      li
+        display: inline-block
+        width: 100px
+        whitespace: nowrap

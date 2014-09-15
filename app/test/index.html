@@ -1,0 +1,79 @@
+<html>
+<head>
+  <title>Form Testd</title>
+</head>
+  <body>
+  <form action="//forms.brace.io/rgrant@archermalmo.com" method="POST" id="contribute" onsubmit="return contributeSubmit()" >
+    <input type="text" name="name">
+    <input type="email" name="_replyto">
+    <input type="hidden" name="_next" value="http://0.0.0.0:9000/contribute/confirm.html" />
+    <input type="hidden" name="_subject" value="New submission for the Keen Showcase!" />
+    <input type="submit" value="Send">
+</form>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <!-- start Keen tracking stuff -->
+       <script src="https://d26b395fwzu5fz.cloudfront.net/3.0.5/keen.min.js"></script>
+      <script>
+        var client = new Keen({
+          projectId: "5408a15980a7bd5add000002",
+          writeKey: "d30f3c91fb2586aa5509aeede958a531b8149bff373f50acaeec94ff330c0f701221cf07135b37f589806d297865eb62e6c99ceb62b39aa90d72ef90e6403075cacfaf7fa96511a07f8f62607ca1d7e68b36f860ad47b6ef33a964282ef90da41c39f33d0fa5addfc16b552f3ced9151",
+          readKey: "c1bdd801430c691dffbe9d7329553d09aaa1ac8b96be7468dde8f3d58e3796abbeddc67774150cc1eba521543d225f32d779886bc2dd95b9206efda052d9437f62804766febb8bd3d3ddd75a1f7446ff6dd3507df7666a89c89fe2533c1b3a47f0d6ec97ff425af9d00a21e78dca8d47"
+        });
+      </script>
+
+    <!-- end Keen tracking stuff -->
+
+
+      <script type="text/javascript">
+        function contributeSubmit(){
+            var values = {};
+              $.each($('#contribute').serializeArray(), function(i, field) {
+                  values[field.name] = field.value;
+              });
+              console.log(values);
+
+          var formsubmit = {
+            formInfo : {
+              formName: "contribute",
+              formEngine: "brace.io"
+            },
+            submission: values,
+            keen : {
+                "addons" :
+                    [
+                      {
+                          "name" : "keen:ip_to_geo",
+                          "input" : {
+                              "ip" : "ip_address"
+                          },
+                          "output" : "ip_geo_info"
+                      },
+                      {
+                          "name" : "keen:ua_parser",
+                          "input" : {
+                              "ua_string" : "user_agent"
+                          },
+                          "output" : "parsed_user_agent"
+                      },
+                      {
+                          "name" : "keen:url_parser",
+                          "input" : {
+                              "url" : "page_url"
+                          },
+                          "output" : "parsed_page_url"
+                      }
+                    ]
+                  },
+
+            page_url: document.baseURI,
+            referrer: document.referrer,
+            ip_address : "${keen.ip}",
+            user_agent : "${keen.user_agent}"
+          };
+         return client.trackExternalLink(event, "contribute_form", formsubmit);
+
+
+        }
+        </script>
+    </body>
+</html>

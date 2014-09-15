@@ -1,0 +1,45 @@
+#profile
+  width: 40%
+  float: right
+  border: 1px solid $grey
+  margin: 0 0 $gutter $gutter
+  h3
+    padding: 0 $gutter
+    line-height: 2
+    background-color: $grey
+    color: $white
+    text-align: center
+  p
+    padding: 0 $gutter
+    @extend .zeta
+    line-height: 1.3
+  .details
+    text-align: center
+    width: 100px
+    float: right
+    margin-left: $gutter
+    margin: 0 $gutter
+    img
+      max-width: 100%
+      height: auto
+    ul
+      +striplist
+      text-align: center
+      margin: 0
+    li
+      display: inline-block
+      text-align: center
+      width: 40%
+  +breakpoint(med)
+    width: 300px
+  +breakpoint(sm)
+    width: auto
+    float: none
+    margin-left: -$gutter
+    margin-right: -$gutter
+    border-width: 0 0 1px 0
+    margin-bottom: 2em
+    padding: 0
+    +clearfix
+    p
+      padding: 0 $gutter

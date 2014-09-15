@@ -1,0 +1,38 @@
+@import _typeplate/typeplate
+// $tera: 117 !default; // 117 = 18 × 6.5
+// $giga: 90 !default; // 90 = 18 × 5
+// $mega: 72 !default; // 72 = 18 × 4
+// $alpha: 60 !default; // 60 = 18 × 3.3333
+// $beta: 48 !default; // 48 = 18 × 2.6667
+// $gamma: 36 !default; // 36 = 18 × 2
+// $delta: 24 !default; // 24 = 18 × 1.3333
+// $epsilon: 21 !default; // 21 = 18 × 1.1667
+// $zeta: 18 !default; // 18 = 18 × 1
+body
+  font-family: "Gafata"
+  font-style: normal
+  font-weight: 400
+  @extend .epsilon
+h1, h2, h3, h4, h5, h6
+  font-weight: normal
+  @extend .beta
+  font-family: "Bree Serif"
+  font-style: normal
+  font-weight: 700
+
+#main-content
+  p, h1, h2, h3, h4, h5, h6, ul, ol, dl
+    max-width: 840px
+    margin-left: auto
+    margin-right: auto
+
+
++breakpoint(sm)
+  h1
+    font-size: 1.4rem
+  h2
+    font-size: 1.4rem
+  h3
+    font-size: 1.4rem
+  h4
+    font-size: 1.4rem

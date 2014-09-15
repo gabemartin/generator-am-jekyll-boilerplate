@@ -1,0 +1,35 @@
+header
+  background-color: lighten($light_grey, 10)
+  +clearfix
+#logo
+  display: inline-block
+  margin: 0
+  float: left
+  width: 300px
+  img
+    max-width: 100%
+    height: auto
+    margin-top: 45px
+
+#contribute
+  padding: 2em 0
+  float: right
+  a
+    @extend %button
+
++breakpoint(sm)
+  #logo
+    width: 100%
+    float: none
+    padding: 1em 0 0 0
+    text-align: center
+    display: block
+    img
+      margin: auto
+      max-width: 250px
+
+  #contribute
+    margin: 0 auto
+    padding: 0 0 1em 0
+    float: none
+    text-align: center

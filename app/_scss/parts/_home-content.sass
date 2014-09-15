@@ -1,0 +1,36 @@
+#home-content
+  padding-top: 2em
+  ul
+    +striplist
+    +clearfix
+    +justifygrid(4)
+    +breakpoint(med-sm)
+      +justifygrid(3)
+    +breakpoint(sm)
+      +justifygrid(2)
+    +breakpoint(x-sm)
+      +justifygrid(1)
+  li
+    margin-bottom: $halfgutter
+    img
+      max-width: 100%
+      opacity: .8
+    &:hover
+      background-color: #eee
+      img
+        opacity: 1
+    *
+      color: $blue
+  p
+    font-size: em(13px)
+    padding-bottom: $halfgutter
+    margin-bottom: $gutter
+  h3, p
+    padding-left: $halfgutter
+    padding-right: $halfgutter
+  a
+    display: block
+    text-decoration: none
+    img
+      margin-bottom: 1em
+

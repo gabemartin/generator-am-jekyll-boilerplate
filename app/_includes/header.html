@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{{ page.title }}</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//fonts.googleapis.com/css?family=Bree+Serif:400|Gafata:400" rel="stylesheet" type="text/css">
+
+
+
+    <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
+
+    <!-- build:css({app,.tmp}) /css/main.css -->
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <!-- endbuild -->
+
+    <!-- build:js(app) /js/head-scripts.js -->
+    <!-- Replace with a custom modernizer build for production -->
+    <script src="/_bower_components/modernizr/modernizr.js"></script>
+    <!-- endbuild -->
+
+  </head>
+  <body> <!--[if lt IE 8]> <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p> <![endif]-->
+  <div class="form">
+    <div class="overlay"></div>
+    <section id="contribute-form">
+      <form action="//forms.brace.io/rgrant@archermalmo.com" method="POST" id="contributeForm" onsubmit="return contributeSubmit()" >
+        <h3>Send us ur stuff.</h3>
+        <div>
+          <label for="name">Name: </label>
+          <input type="text" name="name"></div>
+        <div>
+          <label for="_replyto">Email: </label>
+          <input type="email" name="_replyto"></div>
+        <div>
+          <label for="facebook">Link to Facebook profile: </label>
+          <input type="text" name="facebook"></div>
+        <div>
+          <label for="twitter">Link to Twitter profile: </label>
+          <input type="text" name="twitter"></div>
+        <div>
+          <label for="tool_description">Description of tool: </label>
+          <input type="text" name="tool_description"></div>
+        <div>
+          <label for="repo_link">Repo link: </label>
+          <input type="text" name="repo_link"></div>
+        <div>
+          <label for="demo_link">Demo link: </label>
+          <input type="text" name="demo_link"></div>
+        <div><input type="hidden" name="_next" value="/confirm.html" /></div>
+        <div><input type="hidden" name="_subject" value="New submission for the Keen Showcase!" /></div>
+        <div><input type="submit" value="Send"></div>
+      </form>
+    </section>
+  </div>
+  <div id="wrapper">
+    <header>
+      <figure id="logo"><a href="/"><img src="/img/logo.png" height="72" width="371" alt=""></a></figure>
+      <div id="contribute"><a href="/contribute">Contribute</a></div>
+    </header>

@@ -1,0 +1,53 @@
+#hero
+  +clearfix
+  background-color: $light_grey
+  padding-top: 2em
+  padding-bottom: 2em
+  .image
+    float: left
+    width: 40%
+    img
+      max-width: 100%
+  .copy
+    float: right
+    width: 55%
+  ul
+    +striplist
+    padding-top: 1em
+  li
+    display: inline-block
+    margin-right: 1em
+  a
+    @extend %button
+
+  +breakpoint(med-sm)
+    .image
+      margin-left: $gutter
+      float: right
+    .copy
+      float: none
+      width: auto
+      p
+        margin-bottom: 0
+      ul
+        margin: 0
+      li
+        margin: 0 .3em
+      a
+        padding: 0 1em
+        margin: 0
+
+  +breakpoint(sm)
+    padding: 1em 0
+    .image, .copy
+      float: none
+      width: auto
+    .image
+      text-align: center
+      padding: 0 0 1em 0
+      img
+        width: 60%
+    .copy
+      text-align: center
+      padding: 0 $gutter $gutter/2 $gutter
+

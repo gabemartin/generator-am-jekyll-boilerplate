@@ -1,0 +1,35 @@
+---
+layout: default
+title: Contribute
+needKeen: true
+---
+
+<section id="contribute-form">
+  <form action="//forms.brace.io/rgrant@archermalmo.com" method="POST" id="contributeForm" onsubmit="return contributeSubmit()" >
+    <h3>Send us ur stuff.</h3>
+    <div>
+      <label for="name">Name: </label>
+      <input type="text" name="name"></div>
+    <div>
+      <label for="_replyto">Email: </label>
+      <input type="email" name="_replyto"></div>
+    <div>
+      <label for="facebook">Link to Facebook profile: </label>
+      <input type="text" name="facebook"></div>
+    <div>
+      <label for="twitter">Link to Twitter profile: </label>
+      <input type="text" name="twitter"></div>
+    <div>
+      <label for="tool_description">Description of tool: </label>
+      <input type="text" name="tool_description"></div>
+    <div>
+      <label for="repo_link">Repo link: </label>
+      <input type="text" name="repo_link"></div>
+    <div>
+      <label for="demo_link">Demo link: </label>
+      <input type="text" name="demo_link"></div>
+    <div><input type="hidden" name="_next" value="http://0.0.0.0:9000/contribute/confirm.html" /></div>
+    <div><input type="hidden" name="_subject" value="New submission for the Keen Showcase!" /></div>
+    <div><input type="submit" value="Send"></div>
+  </form>
+</section>

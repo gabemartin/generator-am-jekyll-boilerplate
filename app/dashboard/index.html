@@ -1,0 +1,127 @@
+---
+layout: plain
+title: Dashboard
+needKeen: true
+---
+
+<!DOCTYPE html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{{ page.title }}</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//fonts.googleapis.com/css?family=Bree+Serif:400|Gafata:400" rel="stylesheet" type="text/css">
+
+
+
+    <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
+
+    <!-- build:css({app,.tmp}) /css/main.css -->
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <!-- endbuild -->
+
+    <!-- build:js(app) /js/head-scripts.js -->
+    <!-- Replace with a custom modernizer build for production -->
+
+    <!-- endbuild -->
+
+  </head>
+  <body>
+
+<div id="id01"></div>
+<script>
+function myFunction(arr) {
+    var out = "";
+    var i;
+    for(i = 0; i<arr.length; i++) {
+        out += '<a href="' + arr[i].url + '">' +
+        arr[i].display + '</a><br>';
+    }
+    document.getElementById("id01").innerHTML = out;
+}
+</script>
+<script src="https://api.keen.io/3.0/projects/5408a15980a7bd5add000002/queries/extraction?api_key=c1bdd801430c691dffbe9d7329553d09aaa1ac8b96be7468dde8f3d58e3796abbeddc67774150cc1eba521543d225f32d779886bc2dd95b9206efda052d9437f62804766febb8bd3d3ddd75a1f7446ff6dd3507df7666a89c89fe2533c1b3a47f0d6ec97ff425af9d00a21e78dca8d47&event_collection=contribute_form&property_names=%5B%22submission.name%22%2C%22submission.tool_description%22%2C%22submission._replyto%22%5D"></script>
+
+
+
+  <div id="keen-formSubmissions"></div>
+  <div id="keen-recentPageViews"></div>
+  <div id="keen-todaysPageViews"></div>
+
+
+  {% include scripts.html %}
+  <script>
+      Keen.ready(function(){
+
+        // ****  FORM SUBMISSIONS
+        var formSubmissions = new Keen.Query('count', {
+          eventCollection: 'contribute_form',
+          timeframe: 'this_7_days',
+          interval: 'daily',
+          //groupBy: "parsed_user_agent.os.family",
+          filters: [{'property_name':'parsed_user_agent.os.family','operator':'exists','property_value':true}]
+        });
+
+        client.draw(formSubmissions, document.getElementById("keen-formSubmissions"), {
+          chartType: 'columnchart',
+          title: 'Form Submissions (past 7 days)',
+          chartOptions: {
+            isStacked: true
+          }
+        });
+
+
+        // ****  PAGE VIEWS
+        var recentPageViews = new Keen.Query('count', {
+          eventCollection: 'pageview',
+          timeframe: 'this_2_days',
+          groupBy: 'parsed_page_url.path',
+          filters: [{'property_name':'parsed_page_url.path','operator':'exists','property_value':true}]
+        });
+        client.draw(recentPageViews, document.getElementById("keen-recentPageViews"), {
+          chartType: "piechart",
+          title: 'Page Views (past 2 days)',
+          chartOptions: {
+            isStacked: true
+          }
+        });
+
+        // ****  PAGE VIEWS TODAY
+        var todaysPageViews = new Keen.Query('count', {
+          eventCollection: 'pageview',
+          timeframe: 'this_2_days',
+          interval: 'hourly',
+          groupBy: "parsed_user_agent.os.family"
+        });
+        client.draw(todaysPageViews, document.getElementById("keen-todaysPageViews"), {
+            chartType: "areachart",
+            title: false,
+            height: 250,
+            width: "auto",
+            chartOptions: {
+              chartArea: {
+                height: "85%",
+                left: "5%",
+                top: "5%",
+                width: "80%"
+              },
+              isStacked: true
+            }
+        });
+
+
+
+      });
+
+        //use a version of this to list out submissions
+        var submissionsURL = 'https://api.keen.io/3.0/projects/5408a15980a7bd5add000002/queries/extraction?api_key=c1bdd801430c691dffbe9d7329553d09aaa1ac8b96be7468dde8f3d58e3796abbeddc67774150cc1eba521543d225f32d779886bc2dd95b9206efda052d9437f62804766febb8bd3d3ddd75a1f7446ff6dd3507df7666a89c89fe2533c1b3a47f0d6ec97ff425af9d00a21e78dca8d47&event_collection=contribute_form&property_names=%5B%22submission.name%22%2C%22submission.tool_description%22%2C%22submission._replyto%22%5D&latest=10'
+
+  </script>
+
+
+
+  </body>
+  </html>

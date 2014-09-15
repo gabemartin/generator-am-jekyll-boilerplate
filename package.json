@@ -3,7 +3,9 @@
   "private": true,
   "version": "0.0.0",
   "description": "Yeoman workflow for keen-showcase",
-  "dependencies": {},
+  "dependencies": {
+    "yeoman-generator": "^0.17.6"
+  },
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-autoprefixer": "~0.6.4",
